@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+kind: apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 2
+      replicas: 2
   template:
     metadata:
       labels:
@@ -14,6 +14,10 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: jpizzletech/argocd-app:1.2
+        image: jpizzletech/argocd-app
+        #resources:
+        #  limits:
+        #   memory: "128Mi"
+        #   cpu: "500m"
         ports:
         - containerPort: 8080
