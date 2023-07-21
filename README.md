@@ -1,5 +1,3 @@
-# ArgoCD-project
-
 # Requirements:
 
 # Installed kubectl command-line tool.
@@ -10,7 +8,7 @@
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-# access ArgoCD UI
+# Access ArgoCD UI
 kubectl get svc -n argocd
 kubectl port-forward svc/argocd-server 8080:443 -n argocd
 
@@ -20,4 +18,4 @@ kubectl -n argocd get secret argocd-initial-admin-secret -n argocd -o yaml
 
 echo jsonpath="{.datapassword}" | base64 --decode
 
-# you can change and delete init password
+# You can change and delete init password
